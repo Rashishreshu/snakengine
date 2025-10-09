@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SnakeEngine.AI</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #0d1117;
+      color: #fff;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background-color: #161b22;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.4);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00ff88;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      text-align: left;
+      padding: 10px 15px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-btn:hover, .nav-btn.active {
+      background-color: #00ff88;
+      color: #000;
+    }
+
+    .search-box {
+      margin-top: auto;
+      background: #0d1117;
+      border-radius: 6px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 8px;
+      border: none;
+      background: transparent;
+      color: #fff;
+      outline: none;
+    }
+
+    /* Main content */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #00ff88;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .option-btn {
+      padding: 15px 25px;
+      background-color: #161b22;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .option-btn:hover {
+      background-color: #00ff88;
+      color: #000;
+      transform: translateY(-2px);
+    }
+
+    .chat-input {
+      margin-top: 30px;
+      padding: 10px;
+      width: 80%;
+      max-width: 400px;
+      border: none;
+      border-radius: 6px;
+      background-color: #161b22;
+      color: #fff;
+      text-align: center;
+      outline: none;
+    }
+
+    .response {
+      margin-top: 20px;
+      color: #00ff88;
+      font-style: italic;
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+      body {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <div class="logo">🐍 SnakeEngine.AI</div>
+    <button class="nav-btn active" onclick="switchSection('home')"> New Chat</button>
+    <button class="nav-btn" onclick="switchSection('history')">History</button>
+    <button class="nav-btn" onclick="switchSection('search')"> Search</button>
+    <button class="nav-btn" onclick="switchSection('account')"> Account</button>
+
+    <div class="search-box">
+      <input type="text" placeholder="Search chats...">
+    </div>
+  </div>
+
+  <div class="main" id="main-content">
+    <h1>Welcome to SnakeEngine.AI</h1>
+    <p>Ask me anything. I'm powered by advanced AI and ready to assist you.</p>
+
+    <div class="options">
+      <button class="option-btn">Explain quantum computing</button>
+      <button class="option-btn">Write a Python function</button>
+      <button class="option-btn">What's the latest in AI?</button>
+      <button class="option-btn">Help me brainstorm ideas</button>
+    </div>
+
+    <input type="text" class="chat-input" placeholder="Ask anything... (Press Enter)">
+    <div class="response" id="response">Thinking...</div>
+  </div>
+
+  <script>
+    const main = document.getElementById('main-content');
+    const responseDiv = document.getElementById('response');
+
+    // Chat input
+    document.querySelector('.chat-input').addEventListener('keypress', e => {
+      if (e.key === 'Enter' && e.target.value.trim() !== '') {
+        responseDiv.style.display = 'block';
+        responseDiv.textContent = ' SnakeEngine is processing...';
+        setTimeout(() => {
+          responseDiv.textContent = `AI: "${e.target.value}" sounds interesting! Let's talk more about it.`;
+        }, 1000);
+        e.target.value = '';
+      }
+    });
+
+    // Section switching
+    function switchSection(section) {
+      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      if (section === 'home') {
+        main.innerHTML = `
+          <h1>Welcome to SnakeEngine.AI</h1>
+          <p>Ask me anything. I'm powered by advanced AI and ready to assist you.</p>
+          <div class="options">
+            <button class="option-btn">Explain quantum computing</button>
+            <button class="option-btn">Write a Python function</button>
+            <button class="option-btn">What's the latest in AI?</button>
+            <button class="option-btn">Help me brainstorm ideas</button>
+          </div>
+          <input type="text" class="chat-input" placeholder="Ask anything... (Press Enter)">
+        `;
+      } 
+      else if (section === 'history') {
+        main.innerHTML = `<h1> Chat History</h1><p>No chats yet. Start a new one!</p>`;
+      } 
+      else if (section === 'search') {
+        main.innerHTML = `<h1> Search</h1><input type='text' class='chat-input' placeholder='Search anything...'>`;
+      } 
+      else if (section === 'account') {
+        main.innerHTML = `<h1>👤 Account</h1><p>Logged in as <strong>Guest</strong>.</p><button class='option-btn'>Upgrade Account</button>`;
+      }
+    }
+  </script>
+</body>
+</html>
