@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - SnakeEngine.ai</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#4CAF50" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #f7fafc; }
+    .form-container { box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);}
+    .form-input { transition: border-color 0.3s, box-shadow 0.3s;}
+    .form-input:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);}
+  </style>
+</head>
+<body class="text-gray-800 antialiased">
+  <div class="flex min-h-screen flex-col items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-md space-y-8">
+      <div class="flex justify-center">
+        <!-- SVG and Branding Here -->
+      </div>
+      <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+        Create your account
+      </h2>
+      <p class="mt-2 text-center text-sm text-gray-600">
+        Or <a href="login.html" class="font-medium text-blue-600 hover:text-blue-500">sign in to your existing account</a>
+      </p>
+      <form id="signupForm" class="mt-8 space-y-6">
+        <div class="rounded-md bg-white p-8 shadow-sm border border-gray-200 form-container">
+          <div class="space-y-6">
+            <input id="full-name" name="name" type="text" required class="block w-full rounded-md border px-3 py-3 form-input" placeholder="Full name" />
+            <input id="email-address" name="email" type="email" required class="block w-full rounded-md border px-3 py-3 form-input" placeholder="Email address" />
+            <input id="password" name="password" type="password" required class="block w-full rounded-md border px-3 py-3 form-input" placeholder="Password" />
+          </div>
+        </div>
+        <div class="mt-8">
+          <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-green-500 text-white py-3 rounded-md hover:opacity-90">
+            Create Account
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('full-name').value.trim();
+      const email = document.getElementById('email-address').value.trim();
+      const password = document.getElementById('password').value;
+      if (name.length < 2) {
+        alert('Full name must be at least 2 characters long.');
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+      if (password.length < 8) {
+        alert('Password must be at least 8 characters long.');
+        return;
+      }
+      alert('Account created successfully!');
+      document.getElementById('signupForm').reset();
+      window.location.href = 'app.html';
+    });
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('service-worker.js').then(function(reg) {
+          console.log('Service Worker registered', reg);
+        }).catch(function(err) {
+          console.log('Service Worker failed', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
