@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,63 +14,114 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f7fafc;
+            background-color:  rgb(255, 255, 255);
         }
+
         .neon-glow {
             box-shadow: 0 0 5px rgba(59, 130, 246, 0.5), 0 0 10px rgba(16, 185, 129, 0.5);
             transition: box-shadow 0.3s ease-in-out;
         }
+
         .neon-glow:focus-within {
             box-shadow: 0 0 15px rgba(59, 130, 246, 0.8), 0 0 20px rgba(16, 185, 129, 0.8);
         }
-        .nav-item, .nav-item-mobile {
+
+        .nav-item,
+        .nav-item-mobile {
             transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
         }
-        .nav-item.active, .nav-item:hover {
-            background-color: #e0f2fe;
+
+        .nav-item.active,
+        .nav-item:hover {
+            background-color: #e5e7eb;
             color: #0c4a6e;
         }
-        .nav-item.active svg, .nav-item:hover svg {
+
+        .nav-item.active svg,
+        .nav-item:hover svg {
             stroke: #0c4a6e;
         }
-        .nav-item-mobile.active, .nav-item-mobile:hover {
+
+        .nav-item-mobile.active,
+        .nav-item-mobile:hover {
             color: #0c4a6e;
         }
-        .nav-item-mobile.active svg, .nav-item-mobile:hover svg {
+
+        .nav-item-mobile.active svg,
+        .nav-item-mobile:hover svg {
             stroke: #0c4a6e;
         }
     </style>
 </head>
+
 <body class="text-gray-800 antialiased">
     <div class="flex h-screen w-full">
+        <!-- Sidebar -->
         <nav class="hidden md:flex flex-col items-center w-24 bg-white py-8 border-r border-gray-200 space-y-6">
             <div id="nav-items" class="flex flex-col items-center space-y-8">
-                <a href="#" class="nav-item active flex flex-col items-center p-3 rounded-lg w-20" data-nav="Home" aria-label="Home">
-                    <svg class="w-7 h-7 stroke-current text-gray-500" fill="none" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h7.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                <a href="#" class="nav-item active flex flex-col items-center p-3 rounded-lg w-20" data-nav="Home"
+                    aria-label="Home">
+                    <svg class="w-7 h-7 stroke-current text-gray-500" fill="none" stroke-width="1.5"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h7.5"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
                     <span class="text-xs font-medium mt-1">Home</span>
                 </a>
-                <a href="#" class="nav-item flex flex-col items-center p-3 rounded-lg w-20" data-nav="Discover" aria-label="Discover">
-                    <svg class="w-7 h-7 stroke-current text-gray-500" fill="none" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                <a href="#" class="nav-item flex flex-col items-center p-3 rounded-lg w-20" data-nav="Discover"
+                    aria-label="Discover">
+                    <svg class="w-7 h-7 stroke-current text-gray-500" fill="none" stroke-width="1.5"
+                        viewBox="0 0 24 24">
+                        <path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
                     <span class="text-xs font-medium mt-1">Discover</span>
                 </a>
-                <a href="#" class="nav-item flex flex-col items-center p-3 rounded-lg w-20" data-nav="Spaces" aria-label="Spaces">
-                    <svg class="w-7 h-7 stroke-current text-gray-500" fill="none" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                <a href="#" class="nav-item flex flex-col items-center p-3 rounded-lg w-20" data-nav="Spaces"
+                    aria-label="Spaces">
+                    <svg class="w-7 h-7 stroke-current text-gray-500" fill="none" stroke-width="1.5"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
                     <span class="text-xs font-medium mt-1">Spaces</span>
                 </a>
-                <a href="#" class="nav-item flex flex-col items-center p-3 rounded-lg w-20" data-nav="Account" aria-label="Account">
-                    <svg class="w-7 h-7 stroke-current text-gray-500" fill="none" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                <a href="#" class="nav-item flex flex-col items-center p-3 rounded-lg w-20" data-nav="Account"
+                    aria-label="Account">
+                    <svg class="w-7 h-7 stroke-current text-gray-500" fill="none" stroke-width="1.5"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
                     <span class="text-xs font-medium mt-1">Account</span>
                 </a>
-                <a href="#" class="nav-item flex flex-col items-center p-3 rounded-lg w-20" data-nav="Notifications" aria-label="Notifications">
-                    <svg class="w-7 h-7 stroke-current text-gray-500" fill="none" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                <a href="#" class="nav-item flex flex-col items-center p-3 rounded-lg w-20" data-nav="Notifications"
+                    aria-label="Notifications">
+                    <svg class="w-7 h-7 stroke-current text-gray-500" fill="none" stroke-width="1.5"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
                     <span class="text-xs font-medium mt-1">Notifications</span>
                 </a>
-                <a href="#" class="nav-item flex flex-col items-center p-3 rounded-lg w-20" data-nav="Login" aria-label="Login">
-                    <svg class="w-7 h-7 stroke-current text-gray-500" fill="none" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                <a href="#" onclick="logout()" class="nav-item flex flex-col items-center p-3 rounded-lg w-20"
+                    data-nav="Login" aria-label="Login">
+                    <svg class="w-7 h-7 stroke-current text-gray-500" fill="none" stroke-width="1.5"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
                     <span class="text-xs font-medium mt-1">Login</span>
                 </a>
             </div>
         </nav>
+
+        <!-- Main Content -->
         <main class="flex-1 flex flex-col items-center justify-center p-4 md:p-8 overflow-y-auto">
             <div class="w-full max-w-2xl text-center flex flex-col items-center">
                 <div class="mb-8">
@@ -84,81 +136,101 @@
                                 <stop offset="100%" style="stop-color:rgb(132,204,22);stop-opacity:1" />
                             </linearGradient>
                         </defs>
-                        <path d="M100 20 C 50 20, 50 60, 100 60 S 150 20, 100 20 Z" fill="url(#grad-blue)"/>
-                        <path d="M100 60 C 150 60, 150 100, 100 100 S 50 60, 100 60 Z" fill="url(#grad-green)"/>
-                        <path d="M100 100 C 50 100, 50 140, 100 140 S 150 100, 100 100 Z" fill="url(#grad-blue)"/>
-                        <path d="M100 140 C 150 140, 150 180, 100 180 S 50 140, 100 140 Z" fill="url(#grad-green)"/>
+                        <img src="/image.png" alt="" height="180px" width="180px">
+                    
                     </svg>
                 </div>
                 <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-10">
-                    <span class="mr-2">snakeengine</span><span class="text-blue-500">.</span><span class="text-green-500">ai</span>
+                    <span class="mr-2">snakeengine</span><span class="text-blue-500">.</span><span
+                        class="text-green-500">ai</span>
                 </h1>
                 <div class="w-full max-w-xl mx-auto">
                     <div class="relative flex items-center bg-white rounded-full p-2 border border-gray-200 neon-glow">
-                        <svg class="w-6 h-6 text-gray-400 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                        <input type="text" placeholder="Ask or chat with SnakeEngine AI..." class="flex-grow bg-transparent border-none focus:ring-0 text-lg ml-3 placeholder-gray-400">
+                        <svg class="w-6 h-6 text-gray-400 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <input type="text" placeholder="Ask or chat with SnakeEngine AI..."
+                            class="flex-grow bg-transparent border-none focus:ring-0 text-lg ml-3 placeholder-gray-400">
                     </div>
                 </div>
             </div>
         </main>
+
+        <!-- Mobile Bottom Nav -->
         <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around p-2">
-            <a href="#" class="nav-item-mobile active flex flex-col items-center justify-center text-gray-500 w-1/5 py-1" data-nav-mobile="Home" aria-label="Home">
-                <svg class="w-6 h-6 stroke-current" fill="none" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h7.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <a href="#"
+                class="nav-item-mobile active flex flex-col items-center justify-center text-gray-500 w-1/5 py-1"
+                data-nav-mobile="Home" aria-label="Home">
+                <svg class="w-6 h-6 stroke-current" fill="none" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path
+                        d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h7.5"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
                 <span class="text-xs">Home</span>
             </a>
-            <a href="#" class="nav-item-mobile flex flex-col items-center justify-center text-gray-500 w-1/5 py-1" data-nav-mobile="Discover" aria-label="Discover">
-                <svg class="w-6 h-6 stroke-current" fill="none" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <a href="#" class="nav-item-mobile flex flex-col items-center justify-center text-gray-500 w-1/5 py-1"
+                data-nav-mobile="Discover" aria-label="Discover">
+                <svg class="w-6 h-6 stroke-current" fill="none" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
                 <span class="text-xs">Discover</span>
             </a>
-            <a href="#" class="nav-item-mobile flex flex-col items-center justify-center text-gray-500 w-1/5 py-1" data-nav-mobile="Spaces" aria-label="Spaces">
-                <svg class="w-6 h-6 stroke-current" fill="none" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <a href="#" class="nav-item-mobile flex flex-col items-center justify-center text-gray-500 w-1/5 py-1"
+                data-nav-mobile="Spaces" aria-label="Spaces">
+                <svg class="w-6 h-6 stroke-current" fill="none" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path
+                        d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
                 <span class="text-xs">Spaces</span>
             </a>
-            <a href="#" class="nav-item-mobile flex flex-col items-center justify-center text-gray-500 w-1/5 py-1" data-nav-mobile="Account" aria-label="Account">
-                <svg class="w-6 h-6 stroke-current" fill="none" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <a href="#" class="nav-item-mobile flex flex-col items-center justify-center text-gray-500 w-1/5 py-1"
+                data-nav-mobile="Account" aria-label="Account">
+                <svg class="w-6 h-6 stroke-current" fill="none" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path
+                        d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
                 <span class="text-xs">Account</span>
             </a>
-            <a href="#" class="nav-item-mobile flex flex-col items-center justify-center text-gray-500 w-1/5 py-1" data-nav-mobile="Notifications" aria-label="Notifications">
-                <svg class="w-6 h-6 stroke-current" fill="none" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                <span class="text-xs">Notifications</span>
-            </a>
-            <a href="#" class="nav-item-mobile flex flex-col items-center justify-center text-gray-500 w-1/5 py-1" data-nav-mobile="Login" aria-label="Login">
-                <svg class="w-6 h-6 stroke-current" fill="none" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <a href="#" onclick="logout()"
+                class="nav-item-mobile flex flex-col items-center justify-center text-gray-500 w-1/5 py-1"
+                data-nav-mobile="Login" aria-label="Login">
+                <svg class="w-6 h-6 stroke-current" fill="none" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path
+                        d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
                 <span class="text-xs">Login</span>
             </a>
         </nav>
-        <script>
-            const navItems = document.querySelectorAll('.nav-item');
-            const navItemsMobile = document.querySelectorAll('.nav-item-mobile');
 
-            function handleNavClick(items, isMobile = false) {
-                items.forEach(item => {
-                    item.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        items.forEach(i => {
-                            i.classList.remove('active', isMobile ? 'text-blue-600' : '');
-                            if (isMobile) i.classList.add('text-gray-500');
-                        });
-                        e.currentTarget.classList.add('active');
-                        if (isMobile) {
-                            e.currentTarget.classList.add('text-blue-600');
-                            e.currentTarget.classList.remove('text-gray-500');
-                        }
-                    });
+        <script>
+            // Navigation highlight
+            const navItems = document.querySelectorAll('.nav-item, .nav-item-mobile');
+            navItems.forEach(item => {
+                item.addEventListener('click', e => {
+                    e.preventDefault();
+                    navItems.forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
                 });
+            });
+
+            // Logout placeholder
+            function logout() {
+                window.location.href = 'login.html'
+                alert("Logged out!");
             }
 
-            handleNavClick(navItems);
-            handleNavClick(navItemsMobile, true);
-
+            // PWA Service Worker
             if ('serviceWorker' in navigator) {
-                window.addEventListener('load', () => {
-                    navigator.serviceWorker.register('service-worker.js')
-                        .then(reg => console.log('Service Worker registered', reg))
-                        .catch(err => console.log('Service Worker failed', err));
-                });
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(reg => console.log('Service Worker registered', reg))
+                    .catch(err => console.error('Service Worker registration failed', err));
             }
         </script>
-    </div>
 </body>
+
 </html>
