@@ -720,7 +720,7 @@
         // ---------- FETCH PRODUCTS FROM JSON ----------
         async function loadProducts() {
             try {
-                const response = await fetch("/products.json"); // your JSON file
+                const response = await fetch("products.json"); // your JSON file
                 const json = await response.json();
                 displayBooks(json.products); // pass products array
             } catch (error) {
