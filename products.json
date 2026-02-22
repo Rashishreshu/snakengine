@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Atomic Habits",
+      "description": "Build good habits.",
+      "price": 12.99,
+      "img": "/static/images/atomic.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Atomic Habits",
+      "description": "Build good habits.",
+      "price": 12.99,
+      "img": "/static/images/atomic.jpg"
+    }
+  
+  ]
+}
